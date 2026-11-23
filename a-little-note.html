@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#fbf7f0">
+  <meta name="description" content="A little something, thoughtfully made for Anusha.">
+  <title>A Little Note | A little something</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html" data-i18n="brand">A little <span>something</span> ♡</a>
+    <div class="header-controls">
+      <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language">
+        <span class="lang-opt active" data-lang="en">EN</span>
+        <span class="lang-opt" data-lang="te">తెలుగు</span>
+      </button>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="our-story.html" data-i18n="nav.story">Our Story</a>
+      <a href="our-families.html" data-i18n="nav.families">Our Families</a>
+      <a href="little-things.html" data-i18n="nav.things">Little Things</a>
+      <a href="places.html" data-i18n="nav.places">Places</a>
+      <a href="dreams.html" data-i18n="nav.dreams">Dreams & Ideas</a>
+      <a href="a-little-note.html" data-i18n="nav.note">A Little Note</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="container reveal">
+      <div class="eyebrow" data-i18n="note.eyebrow">A little space for your thoughts</div>
+      <h1 data-i18n="note.title">Over to you, Anusha.</h1>
+      <p class="lead" data-i18n="note.lead">Some questions, just for fun. No right answers, no serious interview — only a chance to discover a few more things about each other.</p>
+      <div class="hero-mark">♡</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="form-card">
+        <form id="funForm" action="https://formspree.io/f/mdeglzna" method="POST">
+          <input type="hidden" name="_subject" value="Anusha's answers for Teja ❤️">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="destination" data-i18n="form.q1">If you could pick one Indian destination for a trip, where would we go?</label>
+              <input id="destination" name="Favourite destination" data-i18n-ph="form.q1.ph" placeholder="A place on your mind…" required>
+            </div>
+            <div class="field">
+              <label for="travel" data-i18n="form.q2">Your ideal travel mood?</label>
+              <select id="travel" name="Travel mood">
+                <option value="">Choose one</option>
+                <option>Relaxed stay and slow mornings</option>
+                <option>Explore everything</option>
+                <option>Food trails and cafés</option>
+                <option>Nature and scenic views</option>
+                <option>A little bit of everything</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="outing" data-i18n="form.q3">Perfect food outing?</label>
+              <select id="outing" name="Food outing">
+                <option value="">Choose one</option>
+                <option>Cosy café</option>
+                <option>Street-food adventure</option>
+                <option>Fine dining</option>
+                <option>Trying a new cuisine</option>
+                <option>Dessert date</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="activity" data-i18n="form.q4">What's one activity you'd enjoy doing together?</label>
+              <input id="activity" name="Activity together" data-i18n-ph="form.q4.ph" placeholder="Anything at all…">
+            </div>
+            <div class="field full">
+              <label for="business" data-i18n="form.q5">Which food-business idea sounds the most fun?</label>
+              <textarea id="business" name="Food business idea" data-i18n-ph="form.q5.ph" placeholder="The Sweet Edit, The Veggie Table, The Treat Lab… or your own idea!"></textarea>
+            </div>
+            <div class="field full">
+              <label for="bucket" data-i18n="form.q6">One experience on your bucket list?</label>
+              <textarea id="bucket" name="Bucket-list experience" data-i18n-ph="form.q6.ph" placeholder="Big, small, adventurous or simple…"></textarea>
+            </div>
+            <div class="field full">
+              <label for="anything" data-i18n="form.q7">Anything else you'd like to add?</label>
+              <textarea id="anything" name="Anything else" data-i18n-ph="form.q7.ph" placeholder="A recommendation, a question, a random thought…"></textarea>
+            </div>
+          </div>
+          <div class="actions" style="justify-content:flex-start">
+            <button class="btn" type="submit" data-i18n="form.submit">Send my answers ♡</button>
+          </div>
+          <p id="formStatus" class="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center">
+      <p class="quote" data-i18n="note.end.quote">“Here's to the chapters ahead.”</p>
+      <p class="muted">— Teja ♡</p>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <span data-i18n="footer.line1">THOUGHTFULLY MADE FOR ANUSHA <span>♡</span></span>
+  <strong data-i18n="footer.line2">DESIGNED BY TEJA</strong>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
