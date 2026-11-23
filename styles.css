@@ -339,3 +339,32 @@ textarea{min-height:105px;resize:vertical}
 .dest-body{
   padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;width:100%;
 }
+
+
+/* =========================================================
+   MOBILE READABILITY TWEAKS (tighter, more balanced text)
+   ========================================================= */
+@media(max-width:760px){
+  body{line-height:1.6}
+  .hero{padding:48px 0 44px}
+  .eyebrow{font-size:.64rem;letter-spacing:.14em;line-height:1.5}
+  h1{font-size:clamp(2.1rem,9vw,2.6rem);line-height:1.15;margin:12px 0 14px;text-wrap:balance}
+  h2{font-size:clamp(1.6rem,6.5vw,1.9rem);line-height:1.2;margin-bottom:14px;text-wrap:balance}
+  h3{font-size:1.25rem;line-height:1.25}
+  .lead{font-size:1rem;line-height:1.6;max-width:32em;text-wrap:pretty}
+  .section-head{margin-bottom:26px}
+  .section-head p,.muted{line-height:1.65;text-wrap:pretty}
+  .card{padding:22px}
+  .card p{line-height:1.6}
+  .quote{font-size:1.3rem;line-height:1.4;text-wrap:balance}
+  .hero-mark{width:60px;height:60px;margin-top:22px}
+  .split{gap:28px}
+  .actions{margin-top:22px}
+}
+
+/* Telugu glyphs are taller, so they need a little more line spacing */
+html[lang="te"] body{line-height:1.85}
+html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3{line-height:1.4}
+@media(max-width:760px){
+  html[lang="te"] body,html[lang="te"] .lead,html[lang="te"] .muted{line-height:1.8}
+}
