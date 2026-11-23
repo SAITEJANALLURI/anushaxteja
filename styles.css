@@ -368,3 +368,14 @@ html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3{line-height:1.4}
 @media(max-width:760px){
   html[lang="te"] body,html[lang="te"] .lead,html[lang="te"] .muted{line-height:1.8}
 }
+
+
+/* Care ♡ Code emoji caption: same look at every breakpoint */
+.duo-bridge .bridge-caption{
+  font-size:1.2rem;letter-spacing:.18em;line-height:1;white-space:nowrap;
+  text-transform:none;font-weight:400;
+}
+@media(max-width:480px){
+  .duo-bridge{gap:12px;min-height:56px}
+  .bridge-line{width:38px}
+}
