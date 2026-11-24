@@ -936,7 +936,10 @@
   const R = window.RIG;
   const { C, H, GY, seg, E, wob } = R;
   const SCENES = (window.SCENES = window.SCENES || {});
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Set to false to respect the visitor's "Reduce Motion" setting (scenes then only play on tap).
+  const FORCE_MOTION = true;
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const reduced = { get matches() { return mq.matches && !FORCE_MOTION; } };
   const WAVE_DUR = 1.25;
 
   class View {
@@ -983,8 +986,8 @@
       this.S = Math.min(r.height / H, r.width / ((this.def && this.def.width) || 380)) * this.zoom;
       this.dirty = true;
     }
-    play() {
-      if (this.def.loopOnly || reduced.matches) {
+    play(force) {
+      if (this.def.loopOnly || (reduced.matches && !force)) {
         return;
       }
       if (!this.on) {
@@ -1090,7 +1093,7 @@
       if (!v.vis || v.paused) {
         continue;
       }
-      if (reduced.matches) {
+      if (reduced.matches && !v.on) {
         if (v.dirty) {
           v.draw();
         }
@@ -1227,11 +1230,12 @@
       if (play !== 'loop' && play !== 'idle') {
         this.dataset.act = '';
         this.tabIndex = 0;
-        this.addEventListener('click', () => v.play());
+        this.addEventListener('click', () => { v.play(true); kick(); });
         this.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            v.play();
+            v.play(true);
+            kick();
           }
         });
       }
