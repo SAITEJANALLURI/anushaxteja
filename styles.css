@@ -377,3 +377,11 @@ html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3{line-height:1.4}
 @media(max-width:480px){
   .duo-bridge{gap:0;min-height:48px}
 }
+
+
+/* Video frames */
+.video-frame{
+  margin:0 auto;max-width:860px;border-radius:22px;overflow:hidden;
+  background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#2b211c}
