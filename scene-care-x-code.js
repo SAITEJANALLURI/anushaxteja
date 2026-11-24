@@ -38,6 +38,7 @@
     width: 420,
     label: 'One figure treats a patient in a dental chair while the other writes code. Both cheer and a bubble reads care times code.',
     draw(g, S) {
+      KIT.sky(g, S.t, this.width);
       const T = S.on ? S.u * this.dur : -1;
       const t = S.t;
       let pa = breathe(P({ hF: [12, -60], hB: [-4, -52] }), t);
@@ -63,6 +64,8 @@
       desk(g);
       fig(g, pa, AX, 0, Object.assign({ wave: S.wave, wt: S.wt }, ANU));
       fig(g, pt, TX, 0, Object.assign({ sx: -1 }, TEJ));
+      KIT.tag(g, AX, 'Anusha', 'treating a patient', ANU.ink);
+      KIT.tag(g, TX, 'Teja', 'writing code', TEJ.ink);
       if (T >= 0) {
         sparks(g, -58, -58, seg(T, 2.4, 3.2) * fade, 22, 8);
         floatText(g, '</>', 62, -84, seg(T, 1.2, 3.2) * fade);

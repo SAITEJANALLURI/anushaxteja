@@ -59,10 +59,11 @@
       } },
   };
 
-  function make(id, keys, xs, width, label) {
+  function make(id, keys, xs, width, label, names) {
     SC[id] = {
       dur: DUR, width, label,
       draw(g, S) {
+      KIT.sky(g, S.t, this.width);
         const T = S.on ? S.u * this.dur : -1;
         const t = S.t;
         const fade = T < 0 ? 0 : 1 - seg(T, 6.0, 6.5);
@@ -86,14 +87,14 @@
         keys.forEach((key, i) => ST[key].draw(g, xs[i], T, fade));
         keys.forEach((key, i) => {
           fig(g, poses[i], xs[i], 0, Object.assign({ wave: i === 0 ? S.wave : 0, wt: S.wt }, ST[key].col, ST[key].hat ? { hat: true } : {}));
-          text(g, ST[key].label, xs[i] + 46, 16, 9.5, C.umber);
+          KIT.tag(g, xs[i], names[i], ST[key].label, ST[key].col.ink);
           if (T >= 0) tickBadge(g, xs[i] + 40, -128, seg(T, 4.8 + i * 0.2, 5.1 + i * 0.2) * fade);
         });
       },
     };
   }
   make('nalluri-work', ['farm', 'tailor', 'code'], [-135, -15, 105], 430,
-    'Three family members at work: one tends the crops, one sews, one writes code. Ticks appear as each finishes.');
+    'Three family members at work: one tends the crops, one sews, one writes code. Ticks appear as each finishes.', ['Koteswararao', 'Sarada', 'Haripriya']);
   make('venigalla-work', ['super', 'accounts', 'code', 'consult'], [-200, -95, 10, 115], 470,
-    'Four family members at work: a supervisor checks a list, an accountant tallies numbers, two software engineers write code. Ticks appear as each finishes.');
+    'Four family members at work: a supervisor checks a list, an accountant tallies numbers, two software engineers write code. Ticks appear as each finishes.', ['Suresh', 'Laxmi', 'Karunya', 'Srikanth']);
 })();

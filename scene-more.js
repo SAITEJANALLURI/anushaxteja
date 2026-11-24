@@ -17,6 +17,7 @@
     dur: 6, width: 400,
     label: 'Two figures walk up to a table, push their plates together, taste each other\'s food and say yum.',
     draw(g, S) {
+      KIT.sky(g, S.t, this.width);
       const T = S.on ? S.u * this.dur : -1, t = S.t;
       const wL = T < 0 ? null : (T < 3.5 ? walkSeg(T, 0.8, 1.6, -84, -62) : walkSeg(T, 4.6, 5.4, -62, -84));
       const wR = T < 0 ? null : (T < 3.5 ? walkSeg(T, 0.8, 1.6, 84, 62) : walkSeg(T, 4.6, 5.4, 62, 84));
@@ -43,7 +44,7 @@
       dot(g, px2 - 7, -60, 4, '#D96B4F'); dot(g, px2 + 6, -61, 4, '#E3B24C');
       fig(g, legs(pl, gl.ph, gl.amp, { arms: false, stride: gl.stride }), xl, 0, Object.assign({ wave: S.wave, wt: S.wt }, ANU));
       fig(g, legs(pr, gr.ph, gr.amp, { arms: false, stride: gr.stride }), xr, 0, Object.assign({ sx: -1 }, TEJ));
-      text(g, 'sweet', -84, 16, 9.5, C.umber); text(g, 'veggie', 84, 16, 9.5, C.umber);
+      KIT.tag(g, xl, 'Anusha', 'loves sweets', ANU.ink); KIT.tag(g, xr, 'Teja', 'loves veggies', TEJ.ink);
       if (T >= 0) bubble(g, 0, -92, 'yum!', seg(T, 3.4, 3.6) * (1 - seg(T, 5.0, 5.3)), { tail: 0 });
     },
   };
@@ -58,6 +59,7 @@
     dur: 6.4, width: 440,
     label: 'One figure fills jars with sweets while the other builds the online shop. A board ticks off menu, test batch, brand and soft launch.',
     draw(g, S) {
+      KIT.sky(g, S.t, this.width);
       const T = S.on ? S.u * this.dur : -1, t = S.t;
       const AX = -150, TX = 150, f = T < 0 ? 0 : 1 - seg(T, 5.9, 6.3);
       const mk = (x, sx, off, target, typing) => {
@@ -84,7 +86,7 @@
       });
       fig(g, legs(pa, 0, 0, { arms: false }), AX, 0, Object.assign({ wave: S.wave, wt: S.wt }, ANU));
       fig(g, legs(pt, 0, 0, { arms: false }), TX, 0, Object.assign({ sx: -1 }, TEJ));
-      text(g, 'kitchen', AX + 54, 16, 9.5, C.umber); text(g, 'online', TX - 54, 16, 9.5, C.umber);
+      KIT.tag(g, AX, 'Anusha', 'tests the batch', ANU.ink); KIT.tag(g, TX, 'Teja', 'builds the shop', TEJ.ink);
       if (T >= 0) { sparks(g, 8, -122, seg(T, 4.6, 5.3) * f, 18, 7); bubble(g, 8, -132, 'soft launch!', seg(T, 4.8, 5.1) * f, { tail: 0 }); }
     },
   };
@@ -95,6 +97,7 @@
     dur: 7.6, width: 420,
     label: 'A traveller walks along signposts for Kerala, Goa and Kashmir and plants a flag at each one.',
     draw(g, S) {
+      KIT.sky(g, S.t, this.width);
       const T = S.on ? S.u * this.dur : -1, t = S.t;
       const W = [walkSeg(T, 0.2, 1.1, -175, -65), walkSeg(T, 1.9, 2.7, -65, 65), walkSeg(T, 3.5, 4.3, 65, 190), walkSeg(T, 5.8, 7.4, 190, -175)];
       let ws = { x: -175, ph: 0, amp: 0 };
@@ -120,6 +123,7 @@
       });
       const gt = rev(ws, sx);
       fig(g, legs(p, gt.ph, gt.amp, { arms: false, stride: ws.stride }), ws.x, 0, Object.assign({ sx, wave: S.wave, wt: S.wt }, ANU));
+      KIT.tag(g, ws.x, 'Anusha', 'picks the places', ANU.ink);
     },
   };
 
@@ -128,6 +132,7 @@
     dur: 6.4, width: 400,
     label: 'A figure writes a note at a desk, walks it to a mailbox and drops it in. The mailbox flag pops up.',
     draw(g, S) {
+      KIT.sky(g, S.t, this.width);
       const T = S.on ? S.u * this.dur : -1, t = S.t;
       const w1 = walkSeg(T, 1.7, 2.8, -120, 92), w2 = walkSeg(T, 4.9, 6.2, 92, -120);
       let ws = { x: -120, ph: 0, amp: 0 };
@@ -162,6 +167,7 @@
         g.restore();
         if (R.frontArm) R.frontArm(g, J);
       }
+      KIT.tag(g, ws.x, 'Anusha', 'writes her answers', ANU.ink);
       if (T >= 0) { sparks(g, 140, -96, seg(T, 3.6, 4.2), 18, 7); tickBadge(g, 160, -104, seg(T, 3.9, 4.2) * (1 - seg(T, 5.6, 6.0))); }
     },
   };
